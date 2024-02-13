@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(24, 18, 118);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 48px;
+}
+
+#grid1 {
+    display: grid;
+    /*resize: horizontal both
+    interface allow resize div - in progress*/
+    margin: 24px;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    /*so that the grid items fit itself and add rows if not enough space for min width*/
+    grid-auto-rows: 240px;
+}
+
+.grid1Items{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;    
+    mix-blend-mode: luminosity;
+    /* align-items: center; */
+    justify-content: center;
+    background-size: cover;/*cover/contain: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit*/
+}
+.grid1Items:hover{
+    transform:  scale(1.2);
+    mix-blend-mode: normal;
+}
+.long{
+    grid-row: span 4 / auto;
+}
+.wide{
+    grid-column: span 3 / auto;
+}
+.square{
+    grid-column: span 2/ auto;
+    grid-row: span 2 / auto;
+}
