@@ -1,27 +1,72 @@
 body {
     background-color: rgb(24, 18, 118);
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    font-family:'Century Gothic', 'Arial Narrow', Arial, sans-serif;
     font-size: min(48px, 20vmin);
+    font: kerning 0;;
     color:azure;
-    display: flexbox;
-    justify-content: center;
-    flex-direction: columns;
+    display: flex;
+    flex-direction: column;
     margin: 24px;
+    padding: 24px;
+}
+p:hover{
+    background: darkslateblue ;
 }
 
+/*https://www.freecodecamp.org/news/css-only-back-to-top-button/*/
+a{
+    margin: 24px 0;
+    text-decoration: none;
+    font-weight: lighter;
+    font-size: 96px;
+    background-color: aliceblue;
+    color: blue;
+    transition: .4 ease-in-out;
+    position: sticky;
+    bottom: 24px;
+}
+a:hover{
+    /*position to right*/
+    place-self: end;
+    background-color: blue;
+    color: aliceblue;
+    font-weight: 900;
+    cursor: pointer violet;
+}
 
+.flexbox2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    cursor: pointer;
+}
+.flexbox2 > h1{
+/*will occupy 20% of the Available width*/
+  flex-grow: 2;
+  overflow: hidden;
+}
+.flexbox2 > h1:hover{
+    border: solid azure 2px;
+    padding-left: 24px;
+    }
 /*source: css-tricks.com/zooming-images-in-a-grid-layout*/
 .gallery{    
     --c: 4; /*number of columns*/
     --g: 20px;/*control gap*/
-    --s: max(160px,24vw);/*ctrl size*/
+    --s: max(160px,2vw);/*ctrl size*/
     --f: 1.5; /*ctrl factor*/
     
     display: grid;
     gap: var(--g);
+    align-self: flex-end;
     width: calc(3*var(--s) + 2*var(--g));
     aspect-ratio: 1;
     grid-template-columns: repeat(var(--c),auto);
+    cursor: pointer;
+    /*https://www.freecodecamp.org/news/learn-flexbox-build-5-layouts/
+    will occupy 80% of the Available width*/
+    flex-grow: 8;
 }
 .gallery > img {
     width: 0;
@@ -38,6 +83,22 @@ body {
     height: calc(var(--s)*var(--f));
 }
 
+
+/*flexbox */
+.flexbox1{
+    margin: 24px 0;
+    display: flexbox;
+    justify-content: center;
+    flex-direction: columns;
+}
+.flexbox1 > img{
+    max-width: 100%;
+    flex-shrink: 2;
+}
+.flexbox1 > img:hover{
+    mix-blend-mode: screen;
+    transform: skew(10turn, -20deg);
+}
 
 /*grid with img that hover change color*/
 #grid1 {
@@ -60,11 +121,8 @@ body {
     mix-blend-mode: normal;
 }
 .grid1 > img {
-    width: 0;
-    height: 0;
-    min-width: 100%;
-    min-height: 100%;
-    cursor: pointer;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: cover;/*cover/contain: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit*/
 }
 .long{
@@ -77,3 +135,10 @@ body {
     grid-column: span 2/ auto;
     grid-row: span 2 / auto;
 }
+
+
+/*source https://www.freecodecamp.org/news/learn-flexbox-build-5-layouts/
+Here, we select and style all .block-* classes along with the media query for mobile display:
+[class ^="block-"]{
+}
+*/
