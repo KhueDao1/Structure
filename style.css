@@ -39,18 +39,20 @@ a:hover{
 
 .flexbox2{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;    
     cursor: pointer;
 }
 .flexbox2 > h1{
-/*will occupy 20% of the Available width*/
-  flex-grow: 2;
-  overflow: hidden;
+/*will occupy 20% of the Available width
+  flex-grow: 2;*/
+  width: 20%;
+  flex-wrap: wrap;
+  align-items: start;
 }
 .flexbox2 > h1:hover{
     border: solid azure 2px;
-    padding-left: 24px;
+    overflow: hidden;
     }
 /*source: css-tricks.com/zooming-images-in-a-grid-layout*/
 .gallery{    
@@ -58,17 +60,16 @@ a:hover{
     --g: 20px;/*control gap*/
     --s: max(160px,2vw);/*ctrl size*/
     --f: 1.5; /*ctrl factor*/
+    /*https://www.freecodecamp.org/news/learn-flexbox-build-5-layouts/
+    will occupy 80% of the Available width
+    flex-grow: 8;*/
     
     display: grid;
     gap: var(--g);
-    align-self: flex-end;
     width: calc(3*var(--s) + 2*var(--g));
     aspect-ratio: 1;
     grid-template-columns: repeat(var(--c),auto);
     cursor: pointer;
-    /*https://www.freecodecamp.org/news/learn-flexbox-build-5-layouts/
-    will occupy 80% of the Available width*/
-    flex-grow: 8;
 }
 .gallery > img {
     width: 0;
@@ -88,14 +89,15 @@ a:hover{
 
 /*flexbox */
 .flexbox1{
-    margin: 24px 0;
+    margin:  24px 0;
     display: flexbox;
+    flex-direction: column;
     justify-content: center;
-    flex-direction: columns;
+    align-items: space-between;
 }
 .flexbox1 > img{
     max-width: 100%;
-    flex-shrink: 2;
+    max-block-size: 100%;
 }
 .flexbox1 > img:hover{
     mix-blend-mode: screen;
@@ -124,7 +126,7 @@ a:hover{
 }
 .grid1 > img {
     max-width: 100%;
-    max-height: 100%;
+    /* min-height: 100%; */
     object-fit: cover;/*cover/contain: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit*/
 }
 .long{
